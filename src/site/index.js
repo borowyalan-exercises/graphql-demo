@@ -15,7 +15,7 @@ import './index.css'
 const httpLink = createHttpLink({ uri: 'https://api.github.com/graphql'})
 
 const authLink = setContext(( _, {headers} ) => {
-    const API_TOKEN = process.env.API_TOKEN
+    const API_TOKEN = '8d39e7b63fe03b38ddbc4f508bb488'
     return {
         headers: {
             ...headers,
