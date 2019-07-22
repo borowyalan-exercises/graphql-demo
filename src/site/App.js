@@ -13,14 +13,14 @@ const  App = graphql(QUERIES.POPULAR_REPOSITORIES_LIST)(props =>
         <ul className='App-list'>
           { !props.data.loading && props.data.search.edges.map((item, index) => 
             <li key={index}>
-              {item.node.owner.login} / {' '}
-              <a 
-                className="App-link"
-                href={'https://github.com/' + item.node.owner.login + "/" + item.node.name}
-                target="_blank"
-                rel="noopener noreferrer"
-              >{item.node.name}</a>: {' '} 
-              <strong>{item.node.stargazers.totalCount} stars</strong> 
+              <span className="repoInfo">{item.node.owner.login} / {' '}</span>
+                <a 
+                  className="App-link"
+                  href={'https://github.com/' + item.node.owner.login + "/" + item.node.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >{item.node.name}</a>: {' '} 
+                <strong>{item.node.stargazers.totalCount}&nbsp;stars</strong>
             </li>
           )}
         </ul>

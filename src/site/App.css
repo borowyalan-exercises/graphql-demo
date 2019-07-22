@@ -28,6 +28,8 @@ h3 {
 }
 
 .App-list {
+  margin-right: 2em;
+
   list-style-type: decimal;
   text-align: justify;
 
@@ -35,7 +37,11 @@ h3 {
 }
 
 .App-list > li {
- padding-left: 1em;
+ padding: 0.2em;
+}
+
+.repoInfo {
+  display: none;
 }
 
 .App-link {
@@ -54,5 +60,11 @@ h3 {
 @media(min-width: 750px) {
   .App-list {
     margin-left: 6em;
+  }
+}
+
+@media(min-width: 900px) {
+  .repoInfo {
+    display: inline;
   }
 }
