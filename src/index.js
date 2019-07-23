@@ -6,6 +6,7 @@ import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import { setContext } from 'apollo-link-context'
+import axios from 'axios'
 
 import * as QUERIES from './site/queries'
 
@@ -24,13 +25,18 @@ const authLink = setContext(( _, {headers} ) => {
 })
 
 const link = authLink.concat(httpLink)
-
 const client = new ApolloClient({
     link: link,
     cache: new InMemoryCache()
 });
 
+
 client.query({ query: QUERIES.POPULAR_REPOSITORIES_LIST }).then(console.log)
+
+axios.get('localhost:3000/.netlify/functions/fetchapi')
+    .then(response => {
+        console.log(response)
+    }) 
 
 ReactDOM.render(
     <ApolloProvider client={client}> 
